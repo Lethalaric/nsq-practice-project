@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "e6f39aeb-feb1-4091-bd0b-08dc4da40aa1",
+		"name": "nsq",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "publisher",
+			"item": [
+				{
+					"name": "nsqd - publish message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"text\": \"message directly from nsqd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4151/pub?topic=test",
+							"host": [
+								"localhost"
+							],
+							"port": "4151",
+							"path": [
+								"pub"
+							],
+							"query": [
+								{
+									"key": "topic",
+									"value": "test"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "publisher - publish",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\":\"new msg from our publisher\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/publisher/publish",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"publisher",
+								"publish"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
